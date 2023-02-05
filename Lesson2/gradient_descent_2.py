@@ -1,6 +1,6 @@
 weight, goal_pred, input = (0.0, 0.8, 0.5)
 
-for iteration in range(4):
+for iteration in range(20):
 
     pred = input * weight
     #Поменяю pred на формулу по которой он вычисляется
