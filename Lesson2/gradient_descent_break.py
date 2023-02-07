@@ -24,6 +24,7 @@ for iteration in range(20):
         ax.text(weight, error + 20, str(iteration + 1))
     else:
         pass
+
     delta = (pred - goal_pred)
     weight_delta = delta * inp
     weight = weight - weight_delta
