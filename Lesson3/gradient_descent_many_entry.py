@@ -41,17 +41,22 @@ true = win_or_lose_binary[0]
 
 inp = [toes[0], wlrec[0], nfans[0]]
 
-prediction = neural_network(inp, weights)
+alpha = 0.01 #Кстати если поставить alpha = 0.1, то устойчивость потеряется
 
-error = (prediction - true) ** 2
+for iteration in range(3):
+    prediction = neural_network(inp, weights)
 
-delta = prediction - true
+    error = (prediction - true) ** 2
+    delta = prediction - true
 
-weights_deltas = ele_mul(delta, inp)
+    weights_deltas = ele_mul(delta, inp)
 
-alpha = 0.01
+    print("Iteration:", iteration + 1)
+    print("Pred:", prediction)
+    print("Error:", error)
+    print("Delta:", delta)
+    print("Weights:", weights)
+    print("Weight_Deltas:", weights_deltas, "\n")
 
-for i in range(len(weights)):
-    weights[i] -= alpha * weights_deltas[i]
-print("Weights:" + str(weights))
-print("Weights Deltas:" + str(weights_deltas))
+    for i in range(len(weights)):
+        weights[i] -= alpha * weights_deltas[i]
